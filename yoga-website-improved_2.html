@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oh the Places You'll Go - Yoga Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Philosopher:ital,wght@0,400;0,700;1,400&family=Lexend:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sage: #9FA8A3;
+            --lavender: #C8B8DB;
+            --cream: #F8F6F4;
+            --charcoal: #2C3333;
+            --moss: #7A8A7D;
+            --terracotta: #D4A574;
+            --warm-white: #FFFEF9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lexend', sans-serif;
+            line-height: 1.7;
+            color: var(--charcoal);
+            background-color: var(--warm-white);
+            overflow-x: hidden;
+        }
+
+        /* Header Section with Enhanced Animation */
+        header {
+            background: linear-gradient(165deg, #9FA8A3 0%, #7A8A7D 50%, #C8B8DB 100%);
+            color: white;
+            padding: 100px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated background elements */
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 20;
+        }
+
+        /* Tree SVG styling - enhanced with animation */
+        .tree-svg {
+            position: absolute;
+            animation: gentleSway 8s infinite ease-in-out;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+            z-index: 1;
+        }
+
+        .tree-svg:nth-child(1) { animation-delay: 0s; }
+        .tree-svg:nth-child(2) { animation-delay: -2s; }
+        .tree-svg:nth-child(3) { animation-delay: -4s; }
+        .tree-svg:nth-child(4) { animation-delay: -1s; }
+        .tree-svg:nth-child(5) { animation-delay: -3s; }
+        .tree-svg:nth-child(6) { animation-delay: -5s; }
+
+        @keyframes gentleSway {
+            0%, 100% { transform: rotate(0deg) translateY(0); }
+            50% { transform: rotate(2deg) translateY(-5px); }
+        }
+
+        /* Hot Air Balloon */
+        .hot-air-balloon {
+            position: absolute;
+            top: 15%;
+            left: -150px;
+            animation: floatBalloon 30s infinite ease-in-out;
+            z-index: 10;
+            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.2));
+        }
+
+        @keyframes floatBalloon {
+            0% {
+                left: -150px;
+                top: 15%;
+                transform: rotate(-2deg);
+            }
+            25% {
+                left: 20%;
+                top: 10%;
+                transform: rotate(1deg);
+            }
+            50% {
+                left: 50%;
+                top: 8%;
+                transform: rotate(-1deg);
+            }
+            75% {
+                left: 80%;
+                top: 12%;
+                transform: rotate(2deg);
+            }
+            100% {
+                left: calc(100% + 150px);
+                top: 15%;
+                transform: rotate(-2deg);
+            }
+        }
+
+        header h1 {
+            font-family: 'Philosopher', sans-serif;
+            font-size: clamp(2.5em, 6vw, 4em);
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+            animation: fadeInDown 1.2s ease-out;
+        }
+
+        header p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.2em, 3vw, 1.6em);
+            font-style: italic;
+            font-weight: 300;
+            opacity: 0.95;
+            animation: fadeInUp 1.2s ease-out 0.3s backwards;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Navigation - Enhanced */
+        nav {
+            background: linear-gradient(to right, var(--sage), var(--moss));
+            padding: 18px 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            margin: 0 8px;
+            display: inline-block;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 25px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--lavender);
+            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        nav a:hover::before {
+            left: 0;
+        }
+
+        nav a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Section Styling with Staggered Animations */
+        section {
+            padding: 80px 20px;
+            margin: 0;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        section:nth-child(1) { animation-delay: 0.1s; }
+        section:nth-child(2) { animation-delay: 0.2s; }
+        section:nth-child(3) { animation-delay: 0.3s; }
+        section:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        section h2 {
+            font-family: 'Philosopher', sans-serif;
+            font-size: clamp(2.2em, 5vw, 3em);
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--sage);
+            font-weight: 700;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--lavender), var(--terracotta));
+            border-radius: 2px;
+        }
+
+        /* About Section - Enhanced */
+        #about {
+            background: linear-gradient(135deg, var(--cream) 0%, #F0EDE8 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 20% 80%, rgba(200, 184, 219, 0.08) 0%, transparent 50%),
+                              radial-gradient(circle at 80% 20%, rgba(159, 168, 163, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .about-content {
+            max-width: 850px;
+            margin: 0 auto;
+            font-size: 1.1em;
+            line-height: 2;
+            color: #444;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-content p {
+            margin-bottom: 28px;
+            padding-left: 20px;
+            border-left: 3px solid var(--lavender);
+            transition: all 0.3s ease;
+        }
+
+        .about-content p:hover {
+            padding-left: 30px;
+            border-left-color: var(--terracotta);
+        }
+
+        /* Classes Section - Redesigned */
+        #classes {
+            background-color: var(--warm-white);
+        }
+
+        .featured-class {
+            background: linear-gradient(135deg, var(--lavender) 0%, var(--sage) 100%);
+            padding: 50px 40px;
+            border-radius: 20px;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s ease;
+        }
+
+        .featured-class::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            animation: rotate 15s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .featured-class:hover {
+            transform: scale(1.02);
+        }
+
+        .featured-class h3 {
+            font-family: 'Philosopher', sans-serif;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .featured-class-details {
+            font-size: 1.25em;
+            line-height: 2.2;
+            position: relative;
+            z-index: 1;
+        }
+
+        .featured-class-details p {
+            margin: 12px 0;
+        }
+
+        .featured-class-details strong {
+            font-weight: 600;
+            margin-right: 8px;
+        }
+
+        .featured-class .drop-in-note {
+            margin-top: 30px;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .class-details-section {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .class-details-section h3 {
+            font-family: 'Philosopher', sans-serif;
+            font-size: 2em;
+            margin-bottom: 35px;
+            text-align: center;
+            color: var(--sage);
+            font-weight: 700;
+        }
+
+        .details-card {
+            background: linear-gradient(135deg, #F8F6F4 0%, #F0EDE8 100%);
+            padding: 45px;
+            border-radius: 15px;
+            line-height: 1.9;
+            color: #444;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        }
+
+        .details-card h4 {
+            color: var(--lavender);
+            font-family: 'Philosopher', sans-serif;
+            font-size: 1.5em;
+            margin-bottom: 18px;
+            margin-top: 35px;
+            font-weight: 700;
+        }
+
+        .details-card h4:first-of-type {
+            margin-top: 0;
+        }
+
+        .details-card ul {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        .details-card li {
+            margin-bottom: 14px;
+            position: relative;
+            padding-left: 10px;
+        }
+
+        .details-card li::marker {
+            color: var(--terracotta);
+        }
+
+        .details-card strong {
+            color: var(--charcoal);
+            font-weight: 600;
+        }
+
+        /* Gallery Section - Enhanced Grid */
+        #gallery {
+            background: linear-gradient(165deg, var(--cream) 0%, #E8E5DF 100%);
+            position: relative;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .gallery-item {
+            height: 320px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            background: linear-gradient(135deg, var(--sage) 0%, var(--moss) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(200, 184, 219, 0.3) 0%, rgba(159, 168, 163, 0.3) 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+        }
+
+        .gallery-item p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6em;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-weight: 400;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .gallery-item p br {
+            display: block;
+            margin: 8px 0;
+        }
+
+        /* Contact Section - Enhanced */
+        #contact {
+            background: linear-gradient(135deg, var(--sage) 0%, var(--moss) 50%, var(--lavender) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.1) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        #contact h2 {
+            color: white;
+        }
+
+        #contact h2::after {
+            background: linear-gradient(to right, white, var(--terracotta));
+        }
+
+        .contact-info {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.2em;
+            line-height: 2.5;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info p {
+            margin: 20px 0;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-info p:hover {
+            transform: translateX(10px);
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 2px solid rgba(255,255,255,0.4);
+            transition: all 0.3s ease;
+            padding-bottom: 2px;
+        }
+
+        .contact-info a:hover {
+            border-bottom-color: var(--terracotta);
+            color: var(--terracotta);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--charcoal);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.95em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 60px 20px 50px;
+            }
+
+            nav a {
+                display: block;
+                margin: 8px auto;
+                max-width: 200px;
+            }
+
+            section {
+                padding: 60px 15px;
+            }
+
+            .featured-class {
+                padding: 35px 25px;
+            }
+
+            .details-card {
+                padding: 30px 20px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll Progress Indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(to right, var(--terracotta), var(--lavender));
+            z-index: 101;
+            transition: width 0.1s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Header with Trees -->
+    <header>
+        <div class="header-content">
+            <!-- Tree 1 SVG - Left Side (Tallest, in back) -->
+            <svg class="tree-svg" width="90" height="150" viewBox="0 0 90 150" style="bottom: 0; left: 2%; opacity: 0.75;" xmlns="http://www.w3.org/2000/svg">
+                <rect x="38" y="85" width="14" height="65" fill="#5A3A1A" rx="2"/>
+                <circle cx="45" cy="80" r="25" fill="#8B9B8E" opacity="0.9"/>
+                <circle cx="32" cy="72" r="20" fill="#7A8A7D" opacity="0.85"/>
+                <circle cx="58" cy="72" r="20" fill="#7A8A7D" opacity="0.85"/>
+                <circle cx="45" cy="62" r="22" fill="#9AA89A" opacity="0.9"/>
+                <circle cx="37" cy="55" r="18" fill="#8B9B8E" opacity="0.8"/>
+                <circle cx="53" cy="55" r="18" fill="#8B9B8E" opacity="0.8"/>
+                <circle cx="45" cy="48" r="20" fill="#A5B3A5" opacity="0.85"/>
+            </svg>
+            
+            <!-- Tree 2 SVG - Left Side (Middle height) -->
+            <svg class="tree-svg" width="100" height="140" viewBox="0 0 100 140" style="bottom: 0; left: 5%; opacity: 0.9;" xmlns="http://www.w3.org/2000/svg">
+                <rect x="42" y="80" width="16" height="60" fill="#6B4423" rx="2"/>
+                <circle cx="50" cy="75" r="28" fill="#9FA8A3" opacity="0.9"/>
+                <circle cx="35" cy="65" r="22" fill="#8B9B8E" opacity="0.85"/>
+                <circle cx="65" cy="65" r="22" fill="#8B9B8E" opacity="0.85"/>
+                <circle cx="50" cy="55" r="25" fill="#A8B5A8" opacity="0.9"/>
+                <circle cx="40" cy="50" r="20" fill="#9FA8A3" opacity="0.8"/>
+                <circle cx="60" cy="50" r="20" fill="#9FA8A3" opacity="0.8"/>
+                <circle cx="50" cy="40" r="22" fill="#B5C4B5" opacity="0.85"/>
+                <circle cx="45" cy="45" r="8" fill="#C8D8C8" opacity="0.6"/>
+                <circle cx="58" cy="55" r="6" fill="#C8D8C8" opacity="0.5"/>
+            </svg>
+            
+            <!-- Tree 3 SVG - Left Side (Shortest, in front) -->
+            <svg class="tree-svg" width="80" height="120" viewBox="0 0 80 120" style="bottom: 0; left: 8%; opacity: 0.95;" xmlns="http://www.w3.org/2000/svg">
+                <rect x="34" y="70" width="12" height="50" fill="#7A5432" rx="2"/>
+                <circle cx="40" cy="65" r="22" fill="#A8B5A8" opacity="0.9"/>
+                <circle cx="28" cy="58" r="18" fill="#98A898" opacity="0.85"/>
+                <circle cx="52" cy="58" r="18" fill="#98A898" opacity="0.85"/>
+                <circle cx="40" cy="50" r="20" fill="#B5C4B5" opacity="0.9"/>
+                <circle cx="33" cy="45" r="16" fill="#A8B5A8" opacity="0.8"/>
+                <circle cx="47" cy="45" r="16" fill="#A8B5A8" opacity="0.8"/>
+                <circle cx="40" cy="38" r="18" fill="#C0CFC0" opacity="0.85"/>
+                <circle cx="36" cy="42" r="6" fill="#D0DFD0" opacity="0.6"/>
+                <circle cx="46" cy="50" r="5" fill="#D0DFD0" opacity="0.5"/>
+            </svg>
+            
+            <!-- Tree 4 SVG - Left Side (Medium) -->
+            <svg class="tree-svg" width="95" height="135" viewBox="0 0 95 135" style="bottom: 0; left: 11%; opacity: 0.85;" xmlns="http://www.w3.org/2000/svg">
+                <rect x="40" y="75" width="15" height="60" fill="#654321" rx="2"/>
+                <circle cx="47" cy="70" r="26" fill="#9FA8A3" opacity="0.9"/>
+                <circle cx="33" cy="62" r="21" fill="#8B9B8E" opacity="0.85"/>
+                <circle cx="61" cy="62" r="21" fill="#8B9B8E" opacity="0.85"/>
+                <circle cx="47" cy="53" r="24" fill="#A8B5A8" opacity="0.9"/>
+                <circle cx="38" cy="47" r="19" fill="#9FA8A3" opacity="0.8"/>
+                <circle cx="56" cy="47" r="19" fill="#9FA8A3" opacity="0.8"/>
+                <circle cx="47" cy="38" r="21" fill="#B5C4B5" opacity="0.85"/>
+                <circle cx="43" cy="43" r="7" fill="#C8D8C8" opacity="0.6"/>
+            </svg>
+            
+            <!-- Tree 5 SVG - Left Side (Tall) -->
+            <svg class="tree-svg" width="85" height="145" viewBox="0 0 85 145" style="bottom: 0; left: 14%; opacity: 0.8;" xmlns="http://www.w3.org/2000/svg">
+                <rect x="36" y="82" width="13" height="63" fill="#5A3A1A" rx="2"/>
+                <circle cx="42" cy="77" r="24" fill="#8B9B8E" opacity="0.9"/>
+                <circle cx="30" cy="70" r="19" fill="#7A8A7D" opacity="0.85"/>
+                <circle cx="54" cy="70" r="19" fill="#7A8A7D" opacity="0.85"/>
+                <circle cx="42" cy="60" r="21" fill="#9AA89A" opacity="0.9"/>
+                <circle cx="35" cy="54" r="17" fill="#8B9B8E" opacity="0.8"/>
+                <circle cx="49" cy="54" r="17" fill="#8B9B8E" opacity="0.8"/>
+                <circle cx="42" cy="46" r="19" fill="#A5B3A5" opacity="0.85"/>
+            </svg>
+            
+            <!-- Tree 1 SVG - Right Side (Tallest) -->
+            <svg class="tree-svg" width="90" height="150" viewBox="0 0 90 150" style="bottom: 0; right: 2%; opacity: 0.75;" xmlns="http://www.w3.org/2000/svg">
+                <rect x="38" y="85" width="14" height="65" fill="#5A3A1A" rx="2"/>
+                <circle cx="45" cy="80" r="25" fill="#8B9B8E" opacity="0.9"/>
+                <circle cx="32" cy="72" r="20" fill="#7A8A7D" opacity="0.85"/>
+                <circle cx="58" cy="72" r="20" fill="#7A8A7D" opacity="0.85"/>
+                <circle cx="45" cy="62" r="22" fill="#9AA89A" opacity="0.9"/>
+                <circle cx="37" cy="55" r="18" fill="#8B9B8E" opacity="0.8"/>
+                <circle cx="53" cy="55" r="18" fill="#8B9B8E" opacity="0.8"/>
+                <circle cx="45" cy="48" r="20" fill="#A5B3A5" opacity="0.85"/>
+            </svg>
+            
+            <!-- Tree 2 SVG - Right Side -->
+            <svg class="tree-svg" width="100" height="140" viewBox="0 0 100 140" style="bottom: 0; right: 5%; opacity: 0.9;" xmlns="http://www.w3.org/2000/svg">
+                <rect x="42" y="80" width="16" height="60" fill="#6B4423" rx="2"/>
+                <circle cx="50" cy="75" r="28" fill="#9FA8A3" opacity="0.9"/>
+                <circle cx="35" cy="65" r="22" fill="#8B9B8E" opacity="0.85"/>
+                <circle cx="65" cy="65" r="22" fill="#8B9B8E" opacity="0.85"/>
+                <circle cx="50" cy="55" r="25" fill="#A8B5A8" opacity="0.9"/>
+                <circle cx="40" cy="50" r="20" fill="#9FA8A3" opacity="0.8"/>
+                <circle cx="60" cy="50" r="20" fill="#9FA8A3" opacity="0.8"/>
+                <circle cx="50" cy="40" r="22" fill="#B5C4B5" opacity="0.85"/>
+                <circle cx="45" cy="45" r="8" fill="#C8D8C8" opacity="0.6"/>
+                <circle cx="58" cy="55" r="6" fill="#C8D8C8" opacity="0.5"/>
+            </svg>
+            
+            <!-- Tree 3 SVG - Right Side -->
+            <svg class="tree-svg" width="80" height="120" viewBox="0 0 80 120" style="bottom: 0; right: 8%; opacity: 0.95;" xmlns="http://www.w3.org/2000/svg">
+                <rect x="34" y="70" width="12" height="50" fill="#7A5432" rx="2"/>
+                <circle cx="40" cy="65" r="22" fill="#A8B5A8" opacity="0.9"/>
+                <circle cx="28" cy="58" r="18" fill="#98A898" opacity="0.85"/>
+                <circle cx="52" cy="58" r="18" fill="#98A898" opacity="0.85"/>
+                <circle cx="40" cy="50" r="20" fill="#B5C4B5" opacity="0.9"/>
+                <circle cx="33" cy="45" r="16" fill="#A8B5A8" opacity="0.8"/>
+                <circle cx="47" cy="45" r="16" fill="#A8B5A8" opacity="0.8"/>
+                <circle cx="40" cy="38" r="18" fill="#C0CFC0" opacity="0.85"/>
+                <circle cx="36" cy="42" r="6" fill="#D0DFD0" opacity="0.6"/>
+                <circle cx="46" cy="50" r="5" fill="#D0DFD0" opacity="0.5"/>
+            </svg>
+            
+            <!-- Tree 4 SVG - Right Side (Medium) -->
+            <svg class="tree-svg" width="90" height="130" viewBox="0 0 90 130" style="bottom: 0; right: 11%; opacity: 0.87;" xmlns="http://www.w3.org/2000/svg">
+                <rect x="38" y="73" width="14" height="57" fill="#6B4423" rx="2"/>
+                <circle cx="45" cy="68" r="25" fill="#A8B5A8" opacity="0.9"/>
+                <circle cx="32" cy="60" r="20" fill="#98A898" opacity="0.85"/>
+                <circle cx="58" cy="60" r="20" fill="#98A898" opacity="0.85"/>
+                <circle cx="45" cy="51" r="23" fill="#B5C4B5" opacity="0.9"/>
+                <circle cx="37" cy="45" r="18" fill="#A8B5A8" opacity="0.8"/>
+                <circle cx="53" cy="45" r="18" fill="#A8B5A8" opacity="0.8"/>
+                <circle cx="45" cy="36" r="20" fill="#C0CFC0" opacity="0.85"/>
+                <circle cx="41" cy="40" r="7" fill="#D0DFD0" opacity="0.6"/>
+                <circle cx="51" cy="48" r="6" fill="#D0DFD0" opacity="0.5"/>
+            </svg>
+            
+            <!-- Hot Air Balloon -->
+            <svg class="hot-air-balloon" width="120" height="160" viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg">
+                <!-- Balloon envelope - using the website colors -->
+                <ellipse cx="60" cy="50" rx="45" ry="52" fill="#C8B8DB" opacity="0.95"/>
+                
+                <!-- Balloon segments/panels -->
+                <path d="M 60 0 Q 40 25, 40 50 L 40 52 Q 40 25, 60 2 Z" fill="#9FA8A3" opacity="0.7"/>
+                <path d="M 60 0 Q 80 25, 80 50 L 80 52 Q 80 25, 60 2 Z" fill="#D4A574" opacity="0.7"/>
+                
+                <!-- Balloon highlights -->
+                <ellipse cx="50" cy="35" rx="12" ry="15" fill="white" opacity="0.3"/>
+                <ellipse cx="45" cy="30" rx="6" ry="8" fill="white" opacity="0.5"/>
+                
+                <!-- Basket ropes -->
+                <line x1="35" y1="100" x2="50" y2="120" stroke="#5A3A1A" stroke-width="1.5"/>
+                <line x1="85" y1="100" x2="70" y2="120" stroke="#5A3A1A" stroke-width="1.5"/>
+                <line x1="45" y1="102" x2="55" y2="120" stroke="#5A3A1A" stroke-width="1.5"/>
+                <line x1="75" y1="102" x2="65" y2="120" stroke="#5A3A1A" stroke-width="1.5"/>
+                
+                <!-- Basket -->
+                <rect x="48" y="120" width="24" height="20" fill="#7A5432" rx="2" stroke="#5A3A1A" stroke-width="1.5"/>
+                <line x1="48" y1="127" x2="72" y2="127" stroke="#5A3A1A" stroke-width="1"/>
+                <line x1="48" y1="133" x2="72" y2="133" stroke="#5A3A1A" stroke-width="1"/>
+                <line x1="56" y1="120" x2="56" y2="140" stroke="#5A3A1A" stroke-width="1"/>
+                <line x1="64" y1="120" x2="64" y2="140" stroke="#5A3A1A" stroke-width="1"/>
+                
+                <!-- Basket rim -->
+                <rect x="46" y="118" width="28" height="3" fill="#5A3A1A" rx="1"/>
+            </svg>
+            
+            <h1>Oh the Places You'll Go</h1>
+            <p>Find Your Flow, Discover Your Strength</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#classes">Classes</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>Welcome to Oh the Places You'll Go! My yoga journey began in college, during a time when life felt overwhelming and chaotic. I discovered that yoga offered me something precious—a way to drown out the noise of the world around me, to center myself, and to truly focus on the present moment.</p>
+                
+                <p>As I continued my practice, I fell in love with the many different styles of yoga, each offering its own unique gifts. This deepening connection eventually led me to pursue my calling to teach. In August 2023, I completed my 200-hour Wellness, SEL, and Yoga teacher certificate through Breathe For Change, and since then, I've been sharing the practice with students and teachers alike in classroom settings.</p>
+                
+                <p>For me, yoga is so much more than physical movement. It's calming and centering. It pushes my body to its limits while simultaneously helping me reconnect with nature and the magic of the elements. That's why you'll find my classes taking place outdoors, surrounded by the beauty of the natural world whenever possible.</p>
+                
+                <p>My teaching focuses on movement and flow, weaving in intentional breathwork to help you feel centered and grounded in your own body. I offer classes in Vinyasa, Sculpt, Hatha, and Yin—each style bringing something different to your practice.</p>
+                
+                <p>Everyone is welcome here—from young children to older adults, from complete beginners to experienced yogis. Yoga is for every body, and I'm honored to be part of your journey wherever you are in your practice.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Classes Section -->
+    <section id="classes">
+        <div class="container">
+            <h2>Classes</h2>
+            
+            <!-- Featured This Week's Class -->
+            <div class="featured-class">
+                <h3>This Week's Class</h3>
+                <div class="featured-class-details">
+                    <p><strong>Style:</strong> [Class Type - Vinyasa/Sculpt/Hatha/Yin]</p>
+                    <p><strong>Day & Date:</strong> [Day, Month Date, Year]</p>
+                    <p><strong>Time:</strong> [Start Time - End Time]</p>
+                    <p><strong>Location:</strong> [Specific Location/Park/Address]</p>
+                </div>
+                <p class="drop-in-note">Drop-in welcome! No registration required.</p>
+            </div>
+
+            <!-- Class Details -->
+            <div class="class-details-section">
+                <h3>Class Details</h3>
+                
+                <div class="details-card">
+                    <h4>Class Styles Offered</h4>
+                    <ul>
+                        <li><strong>Vinyasa:</strong> More movement, a quicker pace, and more flow work.</li>
+                        <li><strong>Sculpt:</strong> The same as Vinyasa but will include weights.</li>
+                        <li><strong>Hatha:</strong> Slower-paced but still has flow and focuses on breath control during movement.</li>
+                        <li><strong>Yin:</strong> Very slow, passive, and meditative. Yin yoga poses are held for much longer periods of time.</li>
+                    </ul>
+
+                    <h4>What to Bring</h4>
+                    <ul>
+                        <li>🧘‍♀️ <strong>Yoga mat:</strong> Participants are encouraged to bring their own mat, but I have some that can be loaned out in case someone doesn't have one.</li>
+                        <li>💧 <strong>Water bottle:</strong> Everyone should bring a water bottle to stay hydrated.</li>
+                        <li>🏋️‍♀️ <strong>Weights (for Sculpt):</strong> If you are wanting to include weights in your practice, you must bring your own.</li>
+                        <li>🛏️ <strong>Blankets or pillows (for Yin):</strong> You may bring these for extra comfort during this practice.</li>
+                    </ul>
+
+                    <h4>Pricing & Registration</h4>
+                    <p>These classes are drop-ins—you do not need to register beforehand to participate! They are also <strong>"pay what you can"</strong> classes. I do not charge a fee for you to participate, but tips are always appreciated!</p>
+
+                    <h4>Who Can Attend</h4>
+                    <p>All ages are welcome! I ask that participants be respectful to me as a teacher, the people around them, and the space around them. Those not willing to show respect and kindness will be asked to leave.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <h2>Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <p>Yoga at City Park<br>🌳</p>
+                </div>
+                <div class="gallery-item">
+                    <p>Sculpt Yoga Outdoors<br>🏋️‍♀️</p>
+                </div>
+                <div class="gallery-item">
+                    <p>New Orleans Nature<br>🌿</p>
+                </div>
+                <div class="gallery-item">
+                    <p>Sunrise Flow Practice<br>🌅</p>
+                </div>
+                <div class="gallery-item">
+                    <p>Peaceful Outdoor Session<br>☀️</p>
+                </div>
+                <div class="gallery-item">
+                    <p>Community Yoga Class<br>💚</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-info">
+                <p>📧 Email: <a href="mailto:ohtheplacesyoullgoyoga@gmail.com">ohtheplacesyoullgoyoga@gmail.com</a></p>
+                <p>📍 Based in New Orleans, LA</p>
+                <p>📱 Instagram: <a href="https://instagram.com/Oh_the_places_youll_go_yoga" target="_blank">@Oh_the_places_youll_go_yoga</a></p>
+                <p style="margin-top: 40px; font-style: italic; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Ready to begin your yoga journey? Reach out to ask about this week's class location or any questions you may have. I'd love to hear from you!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Oh the Places You'll Go Yoga. All rights reserved.</p>
+    </footer>
+
+    <!-- Scroll Progress Script -->
+    <script>
+        // Scroll progress indicator
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercentage = (scrollTop / scrollHeight) * 100;
+            scrollProgress.style.width = scrollPercentage + '%';
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+     

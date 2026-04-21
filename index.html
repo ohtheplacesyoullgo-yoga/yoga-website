@@ -393,6 +393,17 @@
             opacity: 0.95;
         }
 
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .classes-grid .featured-class {
+            margin-bottom: 0;
+        }
+
         .class-details-section {
             max-width: 950px;
             margin: 0 auto;
@@ -819,16 +830,36 @@
         <div class="container">
             <h2>Classes</h2>
             
-            <!-- Featured This Week's Class -->
-            <div class="featured-class">
-                <h3>This Week's Class</h3>
-                <div class="featured-class-details">
-                    <p><strong>Style:</strong> Sculpt</p>
-                    <p><strong>Day & Date:</strong> Tuesday, April 14th</p>
-                    <p><strong>Time:</strong> 4:00-4:45pm</p>
-                    <p><strong>Location:</strong> Old Road Coffee</p>
+            <!-- This Week's Classes -->
+            <h3 style="text-align:center; font-family:'Philosopher',sans-serif; font-size:2em; color:var(--sage); margin-bottom:30px;">This Week's Classes</h3>
+            <div class="classes-grid">
+                <div class="featured-class">
+                    <h3>Hatha</h3>
+                    <div class="featured-class-details">
+                        <p><strong>Day & Date:</strong> Tuesday, April 21st</p>
+                        <p><strong>Time:</strong> 4:00–4:45pm</p>
+                        <p><strong>Location:</strong> Old Road Coffee</p>
+                    </div>
+                    <p class="drop-in-note">Drop-in welcome! No registration required.</p>
                 </div>
-                <p class="drop-in-note">Drop-in welcome! No registration required.</p>
+                <div class="featured-class">
+                    <h3>Vinyasa</h3>
+                    <div class="featured-class-details">
+                        <p><strong>Day & Date:</strong> Thursday, April 23rd</p>
+                        <p><strong>Time:</strong> 6:45–7:30am</p>
+                        <p><strong>Location:</strong> Old Road Coffee</p>
+                    </div>
+                    <p class="drop-in-note">Drop-in welcome! No registration required.</p>
+                </div>
+                <div class="featured-class">
+                    <h3>Vinyasa</h3>
+                    <div class="featured-class-details">
+                        <p><strong>Day & Date:</strong> Sunday, April 26th</p>
+                        <p><strong>Time:</strong> 11:00am–12:00pm</p>
+                        <p><strong>Location:</strong> Old Road Coffee</p>
+                    </div>
+                    <p class="drop-in-note">Drop-in welcome! No registration required.</p>
+                </div>
             </div>
 
             <!-- Class Details -->

@@ -602,6 +602,46 @@
             background: linear-gradient(160deg, #f5f0fb 0%, var(--warm-white) 60%, #f0f4f1 100%);
         }
 
+        .pricing-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 0 auto 50px;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 16px;
+            padding: 35px 50px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(122,138,125,0.1);
+            border-top: 4px solid var(--lavender);
+        }
+
+        .pricing-duration {
+            font-family: 'Philosopher', sans-serif;
+            font-size: 1.2em;
+            color: var(--sage);
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .pricing-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3em;
+            font-weight: 500;
+            color: var(--terracotta);
+        }
+
+        @media (max-width: 768px) {
+            .pricing-cards {
+                gap: 20px;
+            }
+            .pricing-card {
+                padding: 25px 35px;
+            }
+        }
+
         .private-intro {
             max-width: 700px;
             margin: 0 auto 50px;
@@ -1070,6 +1110,17 @@
             <p class="private-intro">
                 Looking for a more personal practice? I offer one-on-one sessions in the comfort of your own home, tailored entirely to your body, goals, and pace — whether you're brand new to yoga, recovering from an injury, or deepening an existing practice. Fill out the form below and I'll reach out to find a time that works for you.
             </p>
+
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <div class="pricing-duration">30 min</div>
+                    <div class="pricing-price">$10</div>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-duration">1 hour</div>
+                    <div class="pricing-price">$12</div>
+                </div>
+            </div>
 
             <div class="booking-form">
                 <div class="form-success" id="formSuccess">

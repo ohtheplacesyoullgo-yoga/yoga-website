@@ -597,6 +597,138 @@
             color: var(--terracotta);
         }
 
+        /* Private Sessions Section */
+        #private {
+            background: linear-gradient(160deg, #f5f0fb 0%, var(--warm-white) 60%, #f0f4f1 100%);
+        }
+
+        .private-intro {
+            max-width: 700px;
+            margin: 0 auto 50px;
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25em;
+            font-style: italic;
+            color: var(--moss);
+            line-height: 1.9;
+        }
+
+        .booking-form {
+            max-width: 680px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 50px 45px;
+            box-shadow: 0 8px 40px rgba(122,138,125,0.12);
+        }
+
+        .form-group {
+            margin-bottom: 26px;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'Philosopher', sans-serif;
+            font-size: 0.95em;
+            letter-spacing: 0.5px;
+            color: var(--moss);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1.5px solid #ddd;
+            border-radius: 10px;
+            font-family: 'Lexend', sans-serif;
+            font-size: 0.95em;
+            color: var(--charcoal);
+            background: var(--warm-white);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            outline: none;
+            appearance: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--lavender);
+            box-shadow: 0 0 0 3px rgba(200,184,219,0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--terracotta), #c8936a);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-family: 'Philosopher', sans-serif;
+            font-size: 1.1em;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212,165,116,0.4);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .form-success .success-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .form-success h3 {
+            font-family: 'Philosopher', sans-serif;
+            font-size: 1.8em;
+            color: var(--moss);
+            margin-bottom: 15px;
+        }
+
+        .form-success p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2em;
+            font-style: italic;
+            color: var(--sage);
+        }
+
+        @media (max-width: 768px) {
+            .booking-form {
+                padding: 35px 25px;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* Footer */
         footer {
             background-color: var(--charcoal);
@@ -811,6 +943,7 @@
         <a href="#classes">Classes</a>
         <a href="#gallery">Gallery</a>
         <a href="#contact">Contact</a>
+        <a href="#private">Private Sessions</a>
     </nav>
 
     <!-- About Section -->
@@ -930,6 +1063,84 @@
     </section>
 
     <!-- Contact Section -->
+    <!-- Private Sessions Section -->
+    <section id="private">
+        <div class="container">
+            <h2>Private Sessions</h2>
+            <p class="private-intro">
+                Looking for a more personal practice? I offer one-on-one sessions tailored entirely to your body, goals, and pace — whether you're brand new to yoga, recovering from an injury, or deepening an existing practice. Fill out the form below and I'll reach out to find a time that works for you.
+            </p>
+
+            <div class="booking-form">
+                <div class="form-success" id="formSuccess">
+                    <div class="success-icon">🌿</div>
+                    <h3>Thank you!</h3>
+                    <p>I received your request and will be in touch soon. I can't wait to practice with you.</p>
+                </div>
+
+                <form id="privateSessionForm" action="https://formspree.io/f/xojoenrp" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Your Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="First and last name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="you@example.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(optional)">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="preferred_day">Preferred Day *</label>
+                            <select id="preferred_day" name="preferred_day" required>
+                                <option value="">Select a day</option>
+                                <option value="Tuesday">Tuesday</option>
+                                <option value="Thursday">Thursday</option>
+                                <option value="Saturday">Saturday</option>
+                                <option value="Sunday">Sunday</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="preferred_time">Preferred Time *</label>
+                            <select id="preferred_time" name="preferred_time" required disabled>
+                                <option value="">Select a day first</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="session_length">Session Length *</label>
+                            <select id="session_length" name="session_length" required>
+                                <option value="">Select a length</option>
+                                <option value="30 minutes">30 minutes</option>
+                                <option value="1 hour">1 hour</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="yoga_style">Type of Yoga *</label>
+                            <select id="yoga_style" name="yoga_style" required>
+                                <option value="">Select a style</option>
+                                <option value="Vinyasa">Vinyasa</option>
+                                <option value="Yin">Yin</option>
+                                <option value="Hatha">Hatha</option>
+                                <option value="Sculpt">Sculpt</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">Send My Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <section id="contact">
         <div class="container">
             <h2>Get In Touch</h2>
@@ -958,6 +1169,72 @@
             const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrollPercentage = (scrollTop / scrollHeight) * 100;
             scrollProgress.style.width = scrollPercentage + '%';
+        });
+    </script>
+    <script>
+        const dayTimeSlots = {
+            'Tuesday':  ['4:00 PM', '5:00 PM', '6:00 PM', '7:00 PM'],
+            'Thursday': ['4:00 PM', '5:00 PM', '6:00 PM', '7:00 PM'],
+            'Saturday': ['9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM'],
+            'Sunday':   ['10:00 AM', '11:00 AM', '12:00 PM']
+        };
+
+        const daySelect = document.getElementById('preferred_day');
+        const timeSelect = document.getElementById('preferred_time');
+
+        daySelect.addEventListener('change', function() {
+            const slots = dayTimeSlots[this.value];
+            timeSelect.innerHTML = '';
+            if (slots) {
+                timeSelect.disabled = false;
+                const placeholder = document.createElement('option');
+                placeholder.value = '';
+                placeholder.textContent = 'Select a time';
+                timeSelect.appendChild(placeholder);
+                slots.forEach(function(slot) {
+                    const opt = document.createElement('option');
+                    opt.value = slot;
+                    opt.textContent = slot;
+                    timeSelect.appendChild(opt);
+                });
+            } else {
+                timeSelect.disabled = true;
+                const placeholder = document.createElement('option');
+                placeholder.value = '';
+                placeholder.textContent = 'Select a day first';
+                timeSelect.appendChild(placeholder);
+            }
+        });
+
+        const form = document.getElementById('privateSessionForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const formSuccess = document.getElementById('formSuccess');
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    form.style.display = 'none';
+                    formSuccess.style.display = 'block';
+                } else {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send My Request';
+                    alert('Something went wrong. Please try again or email me directly.');
+                }
+            } catch (err) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send My Request';
+                alert('Something went wrong. Please try again or email me directly.');
+            }
         });
     </script>
     <script>
